@@ -13,6 +13,12 @@ An end-to-end data engineering project built on Microsoft Fabric. I ingested 2.9
 
 I built this project to get hands-on with Microsoft Fabric's real-time analytics stack, specifically Eventhouse and KQL. The dataset is NYC Yellow Taxi trip records for January 2024 messy, real-world data with some genuinely interesting patterns once you clean it up.
 
+## Dashboard Preview
+
+![NYC Taxi Analytics Dashboard](screenshots/04_dashboard.png)
+
+---
+
 ### Architecture
 
 ```
@@ -113,6 +119,7 @@ If you prefer to create the table manually first:
     payment_type:          int
 )
 ```
+![Dashboard](screenshots/04_dashboard.png)
 
 ### Step 4 Verify the Ingestion
 ```kql
