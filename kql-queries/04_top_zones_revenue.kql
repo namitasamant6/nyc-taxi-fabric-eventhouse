@@ -1,0 +1,15 @@
+// Top 15 pickup zones ranked by total revenue
+// Used for bar chart visual on dashboard
+// Note: PULocationID ingested as string, using isnotempty() instead of > 0
+
+TaxiTrips
+| where tpep_pickup_datetime >= datetime(2024-01-01)
+    and tpep_pickup_datetime < datetime(2024-02-01)
+| where fare_amount > 0
+| where isnotempty(PULocationID)
+| summarize
+    total_revenue = round(sum(total_amount), 0),
+    trip_count    = count(),
+    avg_fare      = round(avg(fare_amount), 2)
+  by PULocationID
+| top 15 by total_revenue
