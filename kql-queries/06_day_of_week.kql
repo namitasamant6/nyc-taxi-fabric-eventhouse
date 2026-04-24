@@ -1,0 +1,22 @@
+// Trip patterns by day of week
+// dayofweek() returns 0=Sunday through 6=Saturday
+
+TaxiTrips
+| where tpep_pickup_datetime >= datetime(2024-01-01)
+    and tpep_pickup_datetime < datetime(2024-02-01)
+| where fare_amount > 0
+| extend day_num = dayofweek(tpep_pickup_datetime) / 1d
+| extend day_name = case(
+    day_num == 0, "Sunday",
+    day_num == 1, "Monday",
+    day_num == 2, "Tuesday",
+    day_num == 3, "Wednesday",
+    day_num == 4, "Thursday",
+    day_num == 5, "Friday",
+    "Saturday")
+| summarize
+    trips     = count(),
+    avg_fare  = round(avg(fare_amount), 2),
+    total_rev = round(sum(total_amount), 0)
+  by day_name, day_num
+| order by day_num asc
