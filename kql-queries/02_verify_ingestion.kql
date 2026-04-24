@@ -1,0 +1,17 @@
+// 1. Count total rows
+TaxiTrips
+| count
+
+// 2. Preview first 10 rows
+TaxiTrips
+| take 10
+
+// 3. Check date range
+TaxiTrips
+| summarize min_date = min(tpep_pickup_datetime),
+            max_date = max(tpep_pickup_datetime)
+
+// 4. Check for nulls in key columns
+TaxiTrips
+| where isnull(fare_amount) or isnull(tpep_pickup_datetime)
+| count
