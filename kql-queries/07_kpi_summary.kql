@@ -1,0 +1,13 @@
+// Single-row KPI summary for dashboard stat tiles
+
+TaxiTrips
+| where tpep_pickup_datetime >= datetime(2024-01-01)
+    and tpep_pickup_datetime < datetime(2024-02-01)
+| where fare_amount > 0
+| summarize
+    total_trips      = count(),
+    total_revenue    = round(sum(total_amount), 0),
+    avg_fare         = round(avg(fare_amount), 2),
+    avg_trip_miles   = round(avg(trip_distance), 2),
+    avg_tip_amount   = round(avg(tip_amount), 2),
+    total_passengers = sum(passenger_count)
