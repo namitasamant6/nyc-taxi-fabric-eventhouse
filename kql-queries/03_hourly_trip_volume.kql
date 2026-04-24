@@ -1,0 +1,13 @@
+// Hourly trip volume across January 2024
+// Used for line chart visual on dashboard
+
+TaxiTrips
+| where tpep_pickup_datetime >= datetime(2024-01-01)
+    and tpep_pickup_datetime < datetime(2024-02-01)
+| where fare_amount > 0
+| summarize
+    trip_count = count(),
+    avg_fare   = round(avg(fare_amount), 2),
+    total_rev  = round(sum(total_amount), 0)
+  by pickup_hour = bin(tpep_pickup_datetime, 1h)
+| order by pickup_hour asc
