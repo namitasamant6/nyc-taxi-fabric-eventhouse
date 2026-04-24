@@ -286,9 +286,8 @@ One thing to be aware of: Power BI has a 500k row limit when querying Eventhouse
 
 ---
 
-## Author
-
-**Connect on LinkedIn:** [Your LinkedIn URL]
+Author
+[Namita Samant] Data Analyst | Data Engineer | Power BI | PySpark | Microsoft Fabric | DAX | SQL LinkedIn: [www.linkedin.com/in/namita-samant-2706b3129] GitHub: [https://github.com/namitasamant6]
 
 ---
 
