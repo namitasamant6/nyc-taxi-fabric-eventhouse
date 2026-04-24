@@ -257,7 +257,7 @@ The raw dataset had some records with pickup timestamps from 2002, which is clea
     and tpep_pickup_datetime < datetime(2024-02-01)
 ```
 
-The `PULocationID` and `payment_type` columns were also ingested as strings rather than integers, which required small adjustments in the queries — using quoted comparisons for `payment_type` and `isnotempty()` instead of `> 0` for location IDs. This is common with real-world datasets and worth knowing before you start writing queries.
+The `PULocationID` and `payment_type` columns were also ingested as strings rather than integers, which required small adjustments in the queries using quoted comparisons for `payment_type` and `isnotempty()` instead of `> 0` for location IDs. This is common with real-world datasets and worth knowing before you start writing queries.
 
 ---
 
@@ -288,7 +288,8 @@ One thing to be aware of: Power BI has a 500k row limit when querying Eventhouse
 
 Author
 [Namita Samant] Data Analyst | Data Engineer | Power BI | PySpark | Microsoft Fabric | DAX | SQL | PYTHON  
-LinkedIn: [www.linkedin.com/in/namita-samant-2706b3129] GitHub: [https://github.com/namitasamant6]
+LinkedIn: [www.linkedin.com/in/namita-samant-2706b3129] 
+GitHub: [https://github.com/namitasamant6]
 
 ---
 
