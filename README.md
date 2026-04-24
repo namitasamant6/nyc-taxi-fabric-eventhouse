@@ -1,11 +1,11 @@
-# NYC Taxi Real-Time Analytics — Microsoft Fabric Eventhouse
+# NYC Taxi Real-Time Analytics - Microsoft Fabric Eventhouse
 
 ![Microsoft Fabric](https://img.shields.io/badge/Microsoft%20Fabric-Eventhouse-7B68EE?style=for-the-badge&logo=microsoft)
 ![KQL](https://img.shields.io/badge/KQL-Query%20Language-4FC4A0?style=for-the-badge)
 ![Power BI](https://img.shields.io/badge/Power%20BI-Real--Time%20Dashboard-F2C811?style=for-the-badge&logo=powerbi)
 ![Data](https://img.shields.io/badge/Dataset-2.9M%20Rows-E05A7A?style=for-the-badge)
 
-An end-to-end data engineering project built on Microsoft Fabric. I ingested 2.9 million NYC Yellow Taxi trip records from Kaggle into an Eventhouse KQL database, wrote five analytics queries, and built a real-time dashboard — all in under 2 hours.
+An end-to-end data engineering project built on Microsoft Fabric. I ingested 2.9 million NYC Yellow Taxi trip records from Kaggle into an Eventhouse KQL database, wrote five analytics queries, and built a real-time dashboard all in under 2 hours.
 
 ---
 
