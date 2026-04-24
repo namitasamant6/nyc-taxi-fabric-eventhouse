@@ -1,0 +1,19 @@
+// Payment method breakdown
+// Note: payment_type was ingested as string, hence quoted comparisons
+// 1=Credit card, 2=Cash, 3=No charge, 4=Dispute
+
+TaxiTrips
+| where tpep_pickup_datetime >= datetime(2024-01-01)
+    and tpep_pickup_datetime < datetime(2024-02-01)
+| where fare_amount > 0
+| summarize
+    trips       = count(),
+    total_tips  = round(sum(tip_amount), 0),
+    avg_tip_pct = round(avg(tip_amount / fare_amount) * 100, 1)
+  by payment_label = case(
+    payment_type == "1", "Credit card",
+    payment_type == "2", "Cash",
+    payment_type == "3", "No charge",
+    payment_type == "4", "Dispute",
+    "Other")
+| order by trips desc
