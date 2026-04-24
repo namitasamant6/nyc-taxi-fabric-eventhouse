@@ -93,7 +93,7 @@ I used just the January 2024 file (~150MB). One month is enough to get meaningfu
 2. Click **Get data → Local file**
 3. Upload the CSV or parquet file
 4. Set the table name to `TaxiTrips`
-5. The wizard auto-maps columns — click **Finish**
+5. The wizard auto-maps columns click **Finish**
 
 If you prefer to create the table manually first:
 
@@ -238,19 +238,19 @@ TaxiTrips
 
 ## What I Found
 
-**Zone 132 is JFK Airport** and it completely dominates the revenue chart — $11.3M in a single month, nearly double the second-place zone. Zone 138 (LaGuardia) comes in second. Airport trips skew the average fare significantly because of flat-rate surcharges and longer distances.
+**Zone 132 is JFK Airport** and it completely dominates the revenue chart $11.3M in a single month, nearly double the second-place zone. Zone 138 (LaGuardia) comes in second. Airport trips skew the average fare significantly because of flat-rate surcharges and longer distances.
 
-**Credit card vs cash is almost no contest** — 97.8% of trips were paid by card. Worth noting that cash tips are not recorded in the system, so the tip percentage figures only reflect card payments. The actual tipping rate is likely higher.
+**Credit card vs cash is almost no contest** 97.8% of trips were paid by card. Worth noting that cash tips are not recorded in the system, so the tip percentage figures only reflect card payments. The actual tipping rate is likely higher.
 
 **Wednesday is consistently the busiest day** across the month. Sunday is the quietest. The pattern holds even when you factor in New Year's weekend at the start of the dataset.
 
-**The 1am hour on January 1st** had the highest single-hour trip count in the entire month — the New Year's Eve surge. It stands out clearly on the line chart.
+**The 1am hour on January 1st** had the highest single-hour trip count in the entire month the New Year's Eve surge. It stands out clearly on the line chart.
 
 ---
 
 ## Data Quality Notes
 
-The raw dataset had some records with pickup timestamps from 2002, which is clearly wrong — a known issue with NYC TLC source data, likely caused by GPS or meter system errors. I added a date filter to all queries to handle this:
+The raw dataset had some records with pickup timestamps from 2002, which is clearly wrong a known issue with NYC TLC source data, likely caused by GPS or meter system errors. I added a date filter to all queries to handle this:
 
 ```kql
 | where tpep_pickup_datetime >= datetime(2024-01-01)
@@ -272,7 +272,7 @@ The `PULocationID` and `payment_type` columns were also ingested as strings rath
 
 The `bin()` function in KQL does in one line what takes a subquery or CTE in SQL. For time-series work specifically, it makes a noticeable difference.
 
-One thing to be aware of: Power BI has a 500k row limit when querying Eventhouse directly. You need to pre-aggregate in KQL before sending results to Power BI — which is better practice anyway, since it keeps your visuals fast regardless of how large the underlying table grows.
+One thing to be aware of: Power BI has a 500k row limit when querying Eventhouse directly. You need to pre-aggregate in KQL before sending results to Power BI which is better practice anyway, since it keeps your visuals fast regardless of how large the underlying table grows.
 
 ---
 
@@ -287,7 +287,7 @@ One thing to be aware of: Power BI has a 500k row limit when querying Eventhouse
 ---
 
 Author
-[Namita Samant] Data Analyst | Data Engineer | Power BI | PySpark | Microsoft Fabric | DAX | SQL LinkedIn: [www.linkedin.com/in/namita-samant-2706b3129] GitHub: [https://github.com/namitasamant6]
+[Namita Samant] Data Analyst | Data Engineer | Power BI | PySpark | Microsoft Fabric | DAX | SQL | PYTHON  LinkedIn: [www.linkedin.com/in/namita-samant-2706b3129] GitHub: [https://github.com/namitasamant6]
 
 ---
 
