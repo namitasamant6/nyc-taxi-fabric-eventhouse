@@ -15,7 +15,7 @@ I built this project to get hands-on with Microsoft Fabric's real-time analytics
 
 ## Dashboard Preview
 
-![NYC Taxi Analytics Dashboard](screenshots/04_dashboard.png)
+![NYC Taxi Analytics Dashboard](screenshots/04_dashboard.png.png)
 
 ---
 
@@ -119,7 +119,7 @@ If you prefer to create the table manually first:
     payment_type:          int
 )
 ```
-![Dashboard](screenshots/04_dashboard.png)
+![Dashboard](screenshots/04_dashboard.png.png)
 
 ### Step 4 Verify the Ingestion
 ```kql
