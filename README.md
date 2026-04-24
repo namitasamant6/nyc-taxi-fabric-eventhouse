@@ -67,7 +67,7 @@ Kaggle Dataset → Eventhouse (KQL Database) → KQL Queryset → Real-Time Dash
 ## Getting Started
 
 ### Prerequisites
-- Microsoft Fabric account — free 60-day trial at [app.fabric.microsoft.com](https://app.fabric.microsoft.com)
+- Microsoft Fabric account free 60-day trial at [app.fabric.microsoft.com](https://app.fabric.microsoft.com)
 - The dataset: search "NYC Yellow Taxi Trip Records January 2024" by Muhammad Ibrahim Qasmi on Kaggle, or download directly from the [NYC TLC website](https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page)
 
 I used just the January 2024 file (~150MB). One month is enough to get meaningful results and keeps ingestion time reasonable.
