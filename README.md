@@ -5,13 +5,13 @@
 ![Power BI](https://img.shields.io/badge/Power%20BI-Real--Time%20Dashboard-F2C811?style=for-the-badge&logo=powerbi)
 ![Data](https://img.shields.io/badge/Dataset-2.9M%20Rows-E05A7A?style=for-the-badge)
 
-An end-to-end data engineering project built on Microsoft Fabric. I ingested 2.9 million NYC Yellow Taxi trip records from Kaggle into an Eventhouse KQL database, wrote five analytics queries, and built a real-time dashboard all in under 2 hours.
+An end-to-end data engineering project built on Microsoft Fabric. I ingested 2.9 million NYC Yellow Taxi trip records from Kaggle into an Eventhouse KQL database, wrote five analytics queries, and built a real-time dashboard.
 
 ---
 
 ## Project Overview
 
-I built this project to get hands-on with Microsoft Fabric's real-time analytics stack, specifically Eventhouse and KQL. The dataset is NYC Yellow Taxi trip records for January 2024 — messy, real-world data with some genuinely interesting patterns once you clean it up.
+I built this project to get hands-on with Microsoft Fabric's real-time analytics stack, specifically Eventhouse and KQL. The dataset is NYC Yellow Taxi trip records for January 2024 messy, real-world data with some genuinely interesting patterns once you clean it up.
 
 ### Architecture
 
