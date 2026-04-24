@@ -118,8 +118,6 @@ If you prefer to create the table manually first:
     total_amount:          real,
     payment_type:          int
 )
-```
-![Dashboard](screenshots/04_dashboard.png.png)
 
 ### Step 4 Verify the Ingestion
 ```kql
