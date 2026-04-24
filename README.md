@@ -76,19 +76,19 @@ I used just the January 2024 file (~150MB). One month is enough to get meaningfu
 
 ## Setup Steps
 
-### Step 1 — Create a Fabric Workspace
+### Step 1 Create a Fabric Workspace
 1. Go to [app.fabric.microsoft.com](https://app.fabric.microsoft.com)
 2. Click **Workspaces → + New workspace**
 3. Name it `NYC-Taxi-Analytics`
 4. Set license mode to **Trial**
 5. Click **Apply**
 
-### Step 2 — Create the Eventhouse
+### Step 2 Create the Eventhouse
 1. Inside the workspace, click **+ New → Eventhouse**
 2. Name it `TaxiEventhouse`
 3. Click **Create** and wait about 60 seconds
 
-### Step 3 — Ingest the Data
+### Step 3 Ingest the Data
 1. Open the KQL Database (TaxiEventhouse)
 2. Click **Get data → Local file**
 3. Upload the CSV or parquet file
@@ -114,22 +114,22 @@ If you prefer to create the table manually first:
 )
 ```
 
-### Step 4 — Verify the Ingestion
+### Step 4 Verify the Ingestion
 ```kql
 TaxiTrips
 | count
 ```
 Should return around 2,964,624. If it does, you're good to move on.
 
-### Step 5 — Create a KQL Queryset
+### Step 5 Create a KQL Queryset
 1. Workspace → **+ New → KQL Queryset**
 2. Name it `TaxiAnalytics`
 3. Connect it to the `TaxiEventhouse` database
 
-### Step 6 — Run the Queries
+### Step 6 Run the Queries
 All five queries are in the `kql-queries/` folder. Run each one and use **Save to Dashboard** to pin the results.
 
-### Step 7 — Build the Dashboard
+### Step 7 Build the Dashboard
 1. Run each query in the Queryset
 2. Click **Save to Dashboard** and create a new dashboard called `NYC Taxi Analytics Dashboard`
 3. For each subsequent query, save to the same existing dashboard
@@ -139,7 +139,7 @@ All five queries are in the `kql-queries/` folder. Run each one and use **Save t
 
 ## KQL Queries
 
-### Query 1 — Hourly Trip Volume
+### Query 1 Hourly Trip Volume
 
 Shows how demand varies across the day and month. The daily cycle is clear once you plot it as a line chart.
 
@@ -156,7 +156,7 @@ TaxiTrips
 | order by pickup_hour asc
 ```
 
-### Query 2 — Top 15 Zones by Revenue
+### Query 2 Top 15 Zones by Revenue
 
 ```kql
 TaxiTrips
@@ -172,7 +172,7 @@ TaxiTrips
 | top 15 by total_revenue
 ```
 
-### Query 3 — Payment Method Breakdown
+### Query 3 Payment Method Breakdown
 
 Note: `payment_type` was ingested as a string in this dataset, hence the quoted comparisons.
 
@@ -194,7 +194,7 @@ TaxiTrips
 | order by trips desc
 ```
 
-### Query 4 — Day of Week Patterns
+### Query 4 Day of Week Patterns
 
 ```kql
 TaxiTrips
@@ -218,7 +218,7 @@ TaxiTrips
 | order by day_num asc
 ```
 
-### Query 5 — KPI Summary
+### Query 5 KPI Summary
 
 ```kql
 TaxiTrips
