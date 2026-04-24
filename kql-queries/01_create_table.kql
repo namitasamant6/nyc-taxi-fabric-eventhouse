@@ -1,1 +1,17 @@
 The .create table TaxiTrips command
+// Create the TaxiTrips table with explicit schema
+
+.create table TaxiTrips (
+    tpep_pickup_datetime:  datetime,
+    tpep_dropoff_datetime: datetime,
+    passenger_count:       int,
+    trip_distance:         real,
+    PULocationID:          int,
+    DOLocationID:          int,
+    fare_amount:           real,
+    extra:                 real,
+    tip_amount:            real,
+    tolls_amount:          real,
+    total_amount:          real,
+    payment_type:          int
+)
