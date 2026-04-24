@@ -1,18 +1,17 @@
-# nyc-taxi-fabric-eventhouse
-# 🚖 NYC Taxi Real-Time Analytics — Microsoft Fabric Eventhouse
+# NYC Taxi Real-Time Analytics — Microsoft Fabric Eventhouse
 
 ![Microsoft Fabric](https://img.shields.io/badge/Microsoft%20Fabric-Eventhouse-7B68EE?style=for-the-badge&logo=microsoft)
 ![KQL](https://img.shields.io/badge/KQL-Query%20Language-4FC4A0?style=for-the-badge)
 ![Power BI](https://img.shields.io/badge/Power%20BI-Real--Time%20Dashboard-F2C811?style=for-the-badge&logo=powerbi)
 ![Data](https://img.shields.io/badge/Dataset-2.9M%20Rows-E05A7A?style=for-the-badge)
 
-> An end-to-end Data Engineering project built on Microsoft Fabric — from Kaggle data ingestion to a real-time analytics dashboard. Built in under 2 hours.
+An end-to-end data engineering project built on Microsoft Fabric. I ingested 2.9 million NYC Yellow Taxi trip records from Kaggle into an Eventhouse KQL database, wrote five analytics queries, and built a real-time dashboard — all in under 2 hours.
 
 ---
 
-## 📊 Project Overview
+## Project Overview
 
-This project demonstrates a complete real-time analytics pipeline using **Microsoft Fabric Eventhouse** on the NYC Yellow Taxi Trip dataset (January 2024, ~2.9 million rows).
+I built this project to get hands-on with Microsoft Fabric's real-time analytics stack, specifically Eventhouse and KQL. The dataset is NYC Yellow Taxi trip records for January 2024 — messy, real-world data with some genuinely interesting patterns once you clean it up.
 
 ### Architecture
 
@@ -20,89 +19,84 @@ This project demonstrates a complete real-time analytics pipeline using **Micros
 Kaggle Dataset → Eventhouse (KQL Database) → KQL Queryset → Real-Time Dashboard
 ```
 
-### Key Results
+### Results
+
 | Metric | Value |
 |--------|-------|
-| Total Trips Analysed | 2,926,266 |
-| Total Revenue | $80,341,990 |
-| Average Fare | $18.66 |
-| Average Trip Distance | 3.66 miles |
-| Average Tip | $3.38 |
-| Query Speed | < 1 second on 2.9M rows |
+| Total trips analysed | 2,926,266 |
+| Total revenue | $80,341,990 |
+| Average fare | $18.66 |
+| Average trip distance | 3.66 miles |
+| Average tip | $3.38 |
+| Query speed | under 1 second on 2.9M rows |
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 | Tool | Purpose |
 |------|---------|
-| **Microsoft Fabric Eventhouse** | Real-time analytics store (KQL Database) |
-| **KQL (Kusto Query Language)** | Analytics queries |
-| **Fabric Real-Time Dashboard** | Visualisation layer |
-| **Kaggle / NYC TLC** | Data source |
+| Microsoft Fabric Eventhouse | Real-time analytics store (KQL Database) |
+| KQL (Kusto Query Language) | Analytics queries |
+| Fabric Real-Time Dashboard | Visualisation layer |
+| Kaggle / NYC TLC | Data source |
 
 ---
 
-## 📁 Repository Structure
+## Repository Structure
 
 ```
-├── README.md                          # This file
+├── README.md
 ├── kql-queries/
-│   ├── 01_create_table.kql            # Table schema creation
-│   ├── 02_verify_ingestion.kql        # Data verification queries
-│   ├── 03_hourly_trip_volume.kql      # Hourly analytics
-│   ├── 04_top_zones_revenue.kql       # Zone revenue analysis
-│   ├── 05_payment_analysis.kql        # Payment method breakdown
-│   ├── 06_day_of_week.kql             # Weekly patterns
-│   └── 07_kpi_summary.kql            # KPI dashboard query
+│   ├── 01_create_table.kql
+│   ├── 02_verify_ingestion.kql
+│   ├── 03_hourly_trip_volume.kql
+│   ├── 04_top_zones_revenue.kql
+│   ├── 05_payment_analysis.kql
+│   ├── 06_day_of_week.kql
+│   └── 07_kpi_summary.kql
 ├── screenshots/
-│   ├── 01_workspace.png               # Fabric workspace
-│   ├── 02_eventhouse.png              # Eventhouse setup
-│   ├── 03_kql_queryset.png            # KQL queries
-│   └── 04_dashboard.png              # Final dashboard
-└── docs/
-    └── step-by-step-guide.md          # Detailed setup guide
+│   ├── 01_workspace.png
+│   ├── 02_eventhouse.png
+│   ├── 03_kql_queryset.png
+│   └── 04_dashboard.png
 ```
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
-- Microsoft Fabric account (free 60-day trial at [app.fabric.microsoft.com](https://app.fabric.microsoft.com))
-- Kaggle account (free) or direct access to [NYC TLC data](https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page)
+- Microsoft Fabric account — free 60-day trial at [app.fabric.microsoft.com](https://app.fabric.microsoft.com)
+- The dataset: search "NYC Yellow Taxi Trip Records January 2024" by Muhammad Ibrahim Qasmi on Kaggle, or download directly from the [NYC TLC website](https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page)
 
-### Dataset
-- **Source:** NYC Yellow Taxi Trip Records — January 2024
-- **Kaggle:** Search "NYC Yellow Taxi Trip Records January 2024" by Muhammad Ibrahim Qasmi
-- **Direct:** Download `yellow_tripdata_2024-01.parquet` from NYC TLC website
-- **Size:** ~150MB, ~2.9 million rows
+I used just the January 2024 file (~150MB). One month is enough to get meaningful results and keeps ingestion time reasonable.
 
 ---
 
-## 📋 Step-by-Step Setup
+## Setup Steps
 
-### Step 1 — Create Fabric Workspace
+### Step 1 — Create a Fabric Workspace
 1. Go to [app.fabric.microsoft.com](https://app.fabric.microsoft.com)
 2. Click **Workspaces → + New workspace**
-3. Name: `NYC-Taxi-Analytics`
-4. License mode: **Trial**
+3. Name it `NYC-Taxi-Analytics`
+4. Set license mode to **Trial**
 5. Click **Apply**
 
-### Step 2 — Create Eventhouse
-1. Inside workspace → **+ New → Eventhouse**
-2. Name: `TaxiEventhouse`
-3. Click **Create** (wait ~60 seconds)
+### Step 2 — Create the Eventhouse
+1. Inside the workspace, click **+ New → Eventhouse**
+2. Name it `TaxiEventhouse`
+3. Click **Create** and wait about 60 seconds
 
-### Step 3 — Create KQL Table & Ingest Data
+### Step 3 — Ingest the Data
 1. Open the KQL Database (TaxiEventhouse)
 2. Click **Get data → Local file**
-3. Upload your downloaded CSV/parquet file
-4. New table name: `TaxiTrips`
-5. Let the wizard auto-map columns
-6. Click **Finish** and wait for ingestion (~10 min)
+3. Upload the CSV or parquet file
+4. Set the table name to `TaxiTrips`
+5. The wizard auto-maps columns — click **Finish**
 
-**Or create manually using KQL:**
+If you prefer to create the table manually first:
+
 ```kql
 .create table TaxiTrips (
     tpep_pickup_datetime:  datetime,
@@ -120,32 +114,35 @@ Kaggle Dataset → Eventhouse (KQL Database) → KQL Queryset → Real-Time Dash
 )
 ```
 
-### Step 4 — Verify Ingestion
+### Step 4 — Verify the Ingestion
 ```kql
-// Should return ~2,964,624
 TaxiTrips
 | count
 ```
+Should return around 2,964,624. If it does, you're good to move on.
 
-### Step 5 — Create KQL Queryset
+### Step 5 — Create a KQL Queryset
 1. Workspace → **+ New → KQL Queryset**
-2. Name: `TaxiAnalytics`
-3. Connect to `TaxiEventhouse` database
+2. Name it `TaxiAnalytics`
+3. Connect it to the `TaxiEventhouse` database
 
-### Step 6 — Run Analytics Queries
-See the `kql-queries/` folder for all queries.
+### Step 6 — Run the Queries
+All five queries are in the `kql-queries/` folder. Run each one and use **Save to Dashboard** to pin the results.
 
-### Step 7 — Build Real-Time Dashboard
-1. In KQL Queryset, run each query
-2. Click **"Save to Dashboard"** for each query result
-3. Name the dashboard: `NYC Taxi Analytics Dashboard`
-4. Change visual types (Table → Line chart, Bar chart, Pie chart)
+### Step 7 — Build the Dashboard
+1. Run each query in the Queryset
+2. Click **Save to Dashboard** and create a new dashboard called `NYC Taxi Analytics Dashboard`
+3. For each subsequent query, save to the same existing dashboard
+4. Change visual types from the default table view to line chart, bar chart, and pie chart as appropriate
 
 ---
 
-## 🔍 KQL Queries
+## KQL Queries
 
 ### Query 1 — Hourly Trip Volume
+
+Shows how demand varies across the day and month. The daily cycle is clear once you plot it as a line chart.
+
 ```kql
 TaxiTrips
 | where tpep_pickup_datetime >= datetime(2024-01-01)
@@ -160,6 +157,7 @@ TaxiTrips
 ```
 
 ### Query 2 — Top 15 Zones by Revenue
+
 ```kql
 TaxiTrips
 | where tpep_pickup_datetime >= datetime(2024-01-01)
@@ -174,7 +172,10 @@ TaxiTrips
 | top 15 by total_revenue
 ```
 
-### Query 3 — Payment Method Analysis
+### Query 3 — Payment Method Breakdown
+
+Note: `payment_type` was ingested as a string in this dataset, hence the quoted comparisons.
+
 ```kql
 TaxiTrips
 | where tpep_pickup_datetime >= datetime(2024-01-01)
@@ -194,6 +195,7 @@ TaxiTrips
 ```
 
 ### Query 4 — Day of Week Patterns
+
 ```kql
 TaxiTrips
 | where tpep_pickup_datetime >= datetime(2024-01-01)
@@ -217,6 +219,7 @@ TaxiTrips
 ```
 
 ### Query 5 — KPI Summary
+
 ```kql
 TaxiTrips
 | where tpep_pickup_datetime >= datetime(2024-01-01)
@@ -233,54 +236,47 @@ TaxiTrips
 
 ---
 
-## 📈 Key Insights Discovered
+## What I Found
 
-- 🏆 **Zone 132 (JFK Airport)** is the #1 revenue zone — $11.3M in one month alone
-- ✈️ **Airport zones** have the highest avg fare ($42–62) due to long-distance trips
-- 💳 **97.8% of trips** paid by credit card — cash tips are invisible in the data
-- 📅 **Wednesday** is the busiest day (489k trips), **Sunday** is the quietest (334k)
-- 🌙 **1am on Jan 1st** had the highest single-hour volume — New Year's Eve surge
-- ⏰ **Early morning (6–8am)** has highest avg fare — airport runs before rush hour
+**Zone 132 is JFK Airport** and it completely dominates the revenue chart — $11.3M in a single month, nearly double the second-place zone. Zone 138 (LaGuardia) comes in second. Airport trips skew the average fare significantly because of flat-rate surcharges and longer distances.
 
----
+**Credit card vs cash is almost no contest** — 97.8% of trips were paid by card. Worth noting that cash tips are not recorded in the system, so the tip percentage figures only reflect card payments. The actual tipping rate is likely higher.
 
-## 💡 Why Eventhouse Over a Data Warehouse?
+**Wednesday is consistently the busiest day** across the month. Sunday is the quietest. The pattern holds even when you factor in New Year's weekend at the start of the dataset.
 
-| Feature | Eventhouse (KQL) | Traditional SQL DW |
-|---------|-----------------|-------------------|
-| Query speed on 3M rows | < 1 second | 30–60 seconds |
-| Time-series functions | Native (bin, ago) | Complex workarounds |
-| Real-time ingestion | Built-in | Requires ETL pipeline |
-| Setup time | Minutes | Hours |
-| Cost for this project | Free trial | Paid compute |
+**The 1am hour on January 1st** had the highest single-hour trip count in the entire month — the New Year's Eve surge. It stands out clearly on the line chart.
 
 ---
 
-## 🧹 Data Quality Notes
+## Data Quality Notes
 
-The raw dataset contained some records with incorrect timestamps (dates from 2002) — a known issue with NYC TLC source data caused by GPS/meter system errors. All queries include a date filter to exclude these:
+The raw dataset had some records with pickup timestamps from 2002, which is clearly wrong — a known issue with NYC TLC source data, likely caused by GPS or meter system errors. I added a date filter to all queries to handle this:
 
 ```kql
 | where tpep_pickup_datetime >= datetime(2024-01-01)
     and tpep_pickup_datetime < datetime(2024-02-01)
 ```
 
-This reduced the dataset from 2,964,624 total records to ~2,926,266 valid January 2024 records.
+The `PULocationID` and `payment_type` columns were also ingested as strings rather than integers, which required small adjustments in the queries — using quoted comparisons for `payment_type` and `isnotempty()` instead of `> 0` for location IDs. This is common with real-world datasets and worth knowing before you start writing queries.
 
 ---
 
-## 📸 Screenshots
+## Why Eventhouse Instead of a Data Warehouse
 
-| Screenshot | Description |
-|-----------|-------------|
-| `screenshots/01_workspace.png` | Fabric workspace with all items |
-| `screenshots/02_eventhouse.png` | Eventhouse with TaxiTrips table |
-| `screenshots/03_kql_queryset.png` | KQL Queryset with all 5 query tabs |
-| `screenshots/04_dashboard.png` | Final real-time dashboard |
+| | Eventhouse (KQL) | Traditional SQL DW |
+|--|--|--|
+| Query speed on 3M rows | under 1 second | 30–60 seconds |
+| Time-series aggregation | `bin()` built-in | requires DATE_TRUNC or equivalent |
+| Real-time ingestion | native | needs a separate pipeline |
+| Setup time | minutes | hours |
+
+The `bin()` function in KQL does in one line what takes a subquery or CTE in SQL. For time-series work specifically, it makes a noticeable difference.
+
+One thing to be aware of: Power BI has a 500k row limit when querying Eventhouse directly. You need to pre-aggregate in KQL before sending results to Power BI — which is better practice anyway, since it keeps your visuals fast regardless of how large the underlying table grows.
 
 ---
 
-## 🔗 Resources
+## Resources
 
 - [Microsoft Fabric Documentation](https://learn.microsoft.com/en-us/fabric/)
 - [KQL Quick Reference](https://aka.ms/KQLguide)
@@ -290,18 +286,10 @@ This reduced the dataset from 2,964,624 total records to ~2,926,266 valid Januar
 
 ---
 
-## 👤 Author
+## Author
 
-Built as a portfolio project to demonstrate Microsoft Fabric data engineering skills.
-
-**Connect with me on LinkedIn:** [Your LinkedIn URL]
+**Connect on LinkedIn:** [Your LinkedIn URL]
 
 ---
 
-## 📄 License
-
-This project is open source and available under the [MIT License](LICENSE).
-
----
-
-⭐ **If this project helped you, please give it a star!**
+If this helped you build something similar, a star would be appreciated.
